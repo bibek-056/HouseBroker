@@ -1,4 +1,3 @@
-using HouseBroker.Core.Models;
 using HouseBroker.Infastructure.Data.DataDbContext;
 using HouseBroker.Infastructure.Repositories;
 using Microsoft.AspNetCore.Identity;

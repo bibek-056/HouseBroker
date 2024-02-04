@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\HouseBroker.Application\HouseBroker.Application.csproj" />
+		<ProjectReference Include="..\HouseBroker.Core\HouseBroker.Core.csproj" />
+		<ProjectReference Include="..\HouseBroker.Infastructure\HouseBroker.Infastructure.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\bin\Debug\net8.0\HouseBroker.Application.deps.json
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\bin\Debug\net8.0\HouseBroker.Application.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\bin\Debug\net8.0\HouseBroker.Application.pdb
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\bin\Debug\net8.0\HouseBroker.Core.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\bin\Debug\net8.0\HouseBroker.Core.pdb
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.csproj.AssemblyReference.cache
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.AssemblyInfoInputs.cache
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.AssemblyInfo.cs
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.csproj.CoreCompileInputs.cache
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.csproj.CopyComplete
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\refint\HouseBroker.Application.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.pdb
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\ref\HouseBroker.Application.dll

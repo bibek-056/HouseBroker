@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HouseBroker.WebAPIs.props" />
+</Project>

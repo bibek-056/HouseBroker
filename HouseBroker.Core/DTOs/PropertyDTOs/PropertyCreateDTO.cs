@@ -28,5 +28,7 @@ namespace HouseBroker.Core.DTOs.PropertyDTOs
         [MaxLength(30)]
         public required string PropertyType { get; set; }
         public required string AskingPrice { get; set; }
+
+        public long? BrokerContact { get; set; }
     }
 }

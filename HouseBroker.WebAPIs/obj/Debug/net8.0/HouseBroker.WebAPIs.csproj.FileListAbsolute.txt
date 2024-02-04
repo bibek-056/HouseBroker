@@ -242,10 +242,8 @@ E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\runtimes\win
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Application.dll
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Core.dll
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Infastructure.dll
-E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Presentation.dll
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Application.pdb
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Infastructure.pdb
-E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Presentation.pdb
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\bin\Debug\net8.0\HouseBroker.Core.pdb
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\obj\Debug\net8.0\HouseBroker.WebAPIs.csproj.AssemblyReference.cache
 E:\DotNet Projects\HouseBroker\HouseBroker.WebAPIs\obj\Debug\net8.0\HouseBroker.WebAPIs.GeneratedMSBuildEditorConfig.editorconfig

@@ -10,7 +10,6 @@
         "dependencies": {
           "HouseBroker.Application": "1.0.0",
           "HouseBroker.Infastructure": "1.0.0",
-          "HouseBroker.Presentation": "1.0.0",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.1",
           "Microsoft.AspNetCore.Identity.UI": "8.0.1",
@@ -2140,16 +2139,6 @@
         "runtime": {
           "HouseBroker.Infastructure.dll": {}
         }
-      },
-      "HouseBroker.Presentation/1.0.0": {
-        "dependencies": {
-          "HouseBroker.Application": "1.0.0",
-          "HouseBroker.Core": "1.0.0",
-          "HouseBroker.Infastructure": "1.0.0"
-        },
-        "runtime": {
-          "HouseBroker.Presentation.dll": {}
-        }
       }
     }
   },
@@ -3430,11 +3419,6 @@
       "sha512": ""
     },
     "HouseBroker.Infastructure/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "HouseBroker.Presentation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

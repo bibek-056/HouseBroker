@@ -33,5 +33,6 @@ namespace HouseBroker.Core.DTOs.PropertyDTOs
         public required string AskingPrice { get; set; }
         public required DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
+        public long? BrokerContact { get; set; }
     }
 }

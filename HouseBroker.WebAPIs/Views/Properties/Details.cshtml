@@ -21,7 +21,10 @@
                     <p class="card-text text-black">@Model.PropertyDescription</p>
                 </div>
                 <div class="card-body row flex justify-content-start gap-3">
-                    <a asp-action="Edit" asp-route-id="@Model.PropertyId" class="btn btn-primary" style="width: 50%">Edit</a>
+                    @if (User.IsInRole("House Broker"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.PropertyId" class="btn btn-primary" style="width: 50%">Edit</a>
+                    }
                     <a asp-action="Index" class="btn btn-secondary" style="width: 50%">Back to List</a>
                 </div>
             </div>
@@ -29,7 +32,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" style="color:green; font-size: 22px; line-height: 2; font-weight: 600">NRS. @Model.AskingPrice</li>
                     <li class="list-group-item text-black">@Model.State , @Model.District , @Model.Municipality - @Model.WardNo </li>
-                    <li class="list-group-item text-black">Broker Contact No: 1234567890 </li>
+                    <li class="list-group-item text-black">Broker Contact No: @Model.BrokerContact </li>
                     <li class="list-group-item text-black flex-row">
                         Listed At: @Model.DateCreated.ToShortDateString()
                         @if (Model.DateModified != null)

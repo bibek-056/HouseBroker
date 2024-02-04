@@ -1,15 +1,29 @@
 ﻿@model IEnumerable<HouseBroker.Core.DTOs.PropertyDTOs.PropertyReadDTO>
+@using Microsoft.AspNetCore.Identity
+@using HouseBroker.Infastructure.Data.DataDbContext
+@inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Index";
 }
 
-<div class="row flex-row justify-content-between">
-    <div class="col text-white">
-        <h1>Listed Properties</h1>
-    </div>
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var roles = await UserManager.GetRolesAsync(user);
+}
+@if (User.IsInRole("House Broker"))
+{
+    <h3 class="text-white">The market is soring Mr.Dunphy. Let's Mint Some Cash.</h3>
+}
+<div class="row flex-row justify-content-between m-4">
+    @if (User.IsInRole("House Seeker"))
+    {
+        <div class="col text-white">
+            <h3>Looking for your next Home?</h3>
+        </div>
+    }
     <div class="col flex-row justify-content-end">
         <form class="form-inline" asp-action="Index" method="get">
-            <div class="input-group">
+            <div class="input-group flex gap-2">
                 <input type="text" class="form-control" name="searchString" placeholder="Search by Property Name or Type">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit">Search</button>
@@ -18,11 +32,14 @@
 
         </form>
     </div>
-    <div class="col flex-row justify-content-end">
-        <p>
-            <a asp-action="Create" class="btn btn-primary">Create New</a>
-        </p>
-    </div>
+    @if (User.IsInRole("House Broker"))
+    {
+        <div class="col flex-row justify-content-end">
+            <p>
+                <a asp-action="Create" class="btn btn-primary">Create New</a>
+            </p>
+        </div>
+    }
 </div>
 
 <div class="row">
@@ -42,16 +59,20 @@
                         <p class="card-text text-black">@item.PropertyDescription</p>
                     </div>
                     <div class="card-body row flex justify-content-start gap-3">
-                        <a asp-action="Edit" asp-route-id="@item.PropertyId" class="btn btn-primary" style="width: 25%">Edit</a>
+                        @if (User.IsInRole("House Broker"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.PropertyId" class="btn btn-primary" style="width: 25%">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.PropertyId" class="btn btn-danger" style="width: 25%">Delete</a>
+
+                        }
                         <a asp-action="Details" asp-route-id="@item.PropertyId" class="btn btn-info" style="width: 25%">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.PropertyId" class="btn btn-danger" style="width: 25%">Delete</a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" style="color:green; font-size: 22px; line-height: 2; font-weight: 600">NRS. @item.AskingPrice</li>
                         <li class="list-group-item text-black">@item.State , @item.District , @item.Municipality - @item.WardNo </li>
-                        <li class="list-group-item text-black">Broker Contact No: 1234567890 </li>
+                        <li class="list-group-item text-black">Broker Contact No: @item.BrokerContact </li>
                         <li class="list-group-item text-black flex-row">
                             Listed At: @item.DateCreated.ToShortDateString()
                             @if (item.DateModified != null)

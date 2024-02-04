@@ -3160,21 +3160,6 @@
         "runtime": {
           "bin/placeholder/HouseBroker.Infastructure.dll": {}
         }
-      },
-      "HouseBroker.Presentation/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "HouseBroker.Application": "1.0.0",
-          "HouseBroker.Core": "1.0.0",
-          "HouseBroker.Infastructure": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/HouseBroker.Presentation.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/HouseBroker.Presentation.dll": {}
-        }
       }
     }
   },
@@ -8659,18 +8644,12 @@
       "type": "project",
       "path": "../HouseBroker.Infastructure/HouseBroker.Infastructure.csproj",
       "msbuildProject": "../HouseBroker.Infastructure/HouseBroker.Infastructure.csproj"
-    },
-    "HouseBroker.Presentation/1.0.0": {
-      "type": "project",
-      "path": "../HouseBroker.Presentation/HouseBroker.Presentation.csproj",
-      "msbuildProject": "../HouseBroker.Presentation/HouseBroker.Presentation.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "HouseBroker.Application >= 1.0.0",
       "HouseBroker.Infastructure >= 1.0.0",
-      "HouseBroker.Presentation >= 1.0.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.1",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.1",
@@ -8711,9 +8690,6 @@
             },
             "E:\\DotNet Projects\\HouseBroker\\HouseBroker.Infastructure\\HouseBroker.Infastructure.csproj": {
               "projectPath": "E:\\DotNet Projects\\HouseBroker\\HouseBroker.Infastructure\\HouseBroker.Infastructure.csproj"
-            },
-            "E:\\DotNet Projects\\HouseBroker\\HouseBroker.Presentation\\HouseBroker.Presentation.csproj": {
-              "projectPath": "E:\\DotNet Projects\\HouseBroker\\HouseBroker.Presentation\\HouseBroker.Presentation.csproj"
             }
           }
         }

@@ -21,7 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\HouseBroker.Application\HouseBroker.Application.csproj" />
     <ProjectReference Include="..\HouseBroker.Infastructure\HouseBroker.Infastructure.csproj" />
-    <ProjectReference Include="..\HouseBroker.Presentation\HouseBroker.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>

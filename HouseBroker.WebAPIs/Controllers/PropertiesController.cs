@@ -18,7 +18,6 @@ namespace HouseBroker.WebAPIs.Controllers
             _genericRepo = genericRepo;
             _mapper = mapper;
         }
-
         public async Task<IActionResult> Index(string searchString)
         {
             var properties = _mapper.Map<List<PropertyReadDTO>>(
@@ -26,7 +25,7 @@ namespace HouseBroker.WebAPIs.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                return View(properties.Where(p => p.PropertyName.Contains(searchString) || p.PropertyType.Contains(searchString)));
+                return View(properties.Where(p => p.PropertyName.ToLower().Contains(searchString.ToLower()) || p.PropertyType.ToLower().Contains(searchString.ToLower())));
             } else
             {
                 return View(properties);
@@ -49,15 +48,15 @@ namespace HouseBroker.WebAPIs.Controllers
 
             return View(@property);
         }
-
+        [Authorize (Roles ="House Broker")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = "House Broker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PropertyName,State,District,Municipality,WardNo,Location,PhotoURL,PropertyDescription,PropertyType,AskingPrice")] PropertyCreateDTO @propertyCreateDTO)
+        public async Task<IActionResult> Create([Bind("PropertyName,State,District,Municipality,WardNo,Location,PhotoURL,PropertyDescription,PropertyType,AskingPrice,BrokerContact")] PropertyCreateDTO @propertyCreateDTO)
         {
             var newProperty = _mapper.Map<Property>(@propertyCreateDTO);
             if (ModelState.IsValid)
@@ -68,7 +67,7 @@ namespace HouseBroker.WebAPIs.Controllers
             }
             return View(newProperty);
         }
-
+        [Authorize(Roles = "House Broker")]
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -85,10 +84,10 @@ namespace HouseBroker.WebAPIs.Controllers
             }
             return View(@property);
         }
-
+        [Authorize(Roles = "House Broker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("PropertyId,PropertyName,State,District,Municipality,WardNo,Location,PhotoURL,PropertyDescription,PropertyType,AskingPrice")] PropertyUpdateDTO @propertyUpdateDTO)
+        public async Task<IActionResult> Edit(Guid id, [Bind("PropertyId,PropertyName,State,District,Municipality,WardNo,Location,PhotoURL,PropertyDescription,PropertyType,AskingPrice,BrokerContact")] PropertyUpdateDTO @propertyUpdateDTO)
         {
             if (id != propertyUpdateDTO.PropertyId)
             {
@@ -111,6 +110,7 @@ namespace HouseBroker.WebAPIs.Controllers
             }
             return View(updateProperty);
         }
+        [Authorize(Roles = "House Broker")]
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -128,7 +128,7 @@ namespace HouseBroker.WebAPIs.Controllers
 
             return View(@property);
         }
-
+        [Authorize(Roles = "House Broker")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

@@ -2,12 +2,14 @@
 using HouseBroker.Core.DTOs.PropertyDTOs;
 using HouseBroker.Core.Models;
 using HouseBroker.Infastructure.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HouseBroker.WebAPIs.APIControllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PropertiesController: ControllerBase
     {
         private readonly IMapper _mapper;
@@ -18,7 +20,6 @@ namespace HouseBroker.WebAPIs.APIControllers
             _genericRepo = genericRepo;
             _mapper = mapper;
         }
-
         [HttpGet]
         public async Task<ActionResult<List<PropertyReadDTO>>> GetProperties()
         {
@@ -42,7 +43,7 @@ namespace HouseBroker.WebAPIs.APIControllers
                 return Ok(returnProperty);
             }
         }
-
+        [Authorize(Roles ="House Broker")]
         [HttpPost]
         public async Task<ActionResult<PropertyReadDTO>> PostProperty(PropertyCreateDTO propertyCreateDTO)
         {
@@ -52,7 +53,7 @@ namespace HouseBroker.WebAPIs.APIControllers
             var returnProperty = _mapper.Map<PropertyReadDTO>(newProperty);
             return CreatedAtAction("GetProperty", new { id = newProperty.PropertyId }, returnProperty);
         }
-
+        [Authorize(Roles = "House Broker")]
         [HttpPut("{id}")]
         public async Task<ActionResult<PropertyReadDTO>> PutProperty(Guid id, PropertyUpdateDTO propertyUpdateDTO)
         {
@@ -72,7 +73,7 @@ namespace HouseBroker.WebAPIs.APIControllers
             var returnData = _mapper.Map<PropertyReadDTO>(prop);
             return Ok(returnData);
         }
-
+        [Authorize(Roles = "House Broker")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProperty(Guid id)
         {

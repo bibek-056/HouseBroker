@@ -25,6 +25,7 @@ public class Property
     [MaxLength(30)]
     public required string PropertyType { get; set; }
     public required string AskingPrice { get; set; }
+    public long? BrokerContact { get; set; }
     public required DateTime DateCreated { get; set; }
     public DateTime? DateModified { get; set; }
     public DateTime? DateDeleted { get; set; }

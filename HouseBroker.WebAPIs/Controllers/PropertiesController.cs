@@ -3,9 +3,11 @@ using HouseBroker.Core.Models;
 using HouseBroker.Infastructure.Repositories;
 using AutoMapper;
 using HouseBroker.Core.DTOs.PropertyDTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HouseBroker.WebAPIs.Controllers
 {
+    [Authorize]
     public class PropertiesController : Controller
     {
         private readonly IGenericRepo _genericRepo;
@@ -17,11 +19,18 @@ namespace HouseBroker.WebAPIs.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(_mapper.Map<List<PropertyReadDTO>>(
-                await _genericRepo.GetAll<Property>(data => data.DateDeleted == null))
-                );
+            var properties = _mapper.Map<List<PropertyReadDTO>>(
+                await _genericRepo.GetAll<Property>(data => data.DateDeleted == null));
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                return View(properties.Where(p => p.PropertyName.Contains(searchString) || p.PropertyType.Contains(searchString)));
+            } else
+            {
+                return View(properties);
+            }
         }
 
         public async Task<IActionResult> Details(Guid? id)
@@ -48,7 +57,7 @@ namespace HouseBroker.WebAPIs.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PropertyName,State,District,Municipality,WardNo,Location,PropertyDescription,PropertyType,AskingPrice")] PropertyCreateDTO @propertyCreateDTO)
+        public async Task<IActionResult> Create([Bind("PropertyName,State,District,Municipality,WardNo,Location,PhotoURL,PropertyDescription,PropertyType,AskingPrice")] PropertyCreateDTO @propertyCreateDTO)
         {
             var newProperty = _mapper.Map<Property>(@propertyCreateDTO);
             if (ModelState.IsValid)
@@ -79,7 +88,7 @@ namespace HouseBroker.WebAPIs.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("PropertyId,PropertyName,State,District,Municipality,WardNo,Location,PropertyDescription,PropertyType,AskingPrice")] PropertyUpdateDTO @propertyUpdateDTO)
+        public async Task<IActionResult> Edit(Guid id, [Bind("PropertyId,PropertyName,State,District,Municipality,WardNo,Location,PhotoURL,PropertyDescription,PropertyType,AskingPrice")] PropertyUpdateDTO @propertyUpdateDTO)
         {
             if (id != propertyUpdateDTO.PropertyId)
             {

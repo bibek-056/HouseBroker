@@ -12,3 +12,4 @@ E:\DotNet Projects\HouseBroker\HouseBroker.Core\obj\Debug\net8.0\ref\HouseBroker
 E:\DotNet Projects\HouseBroker\HouseBroker.Core\bin\Debug\net8.0\HouseBroker.Core.runtimeconfig.json
 E:\DotNet Projects\HouseBroker\HouseBroker.Core\obj\Debug\net8.0\HouseBroker.Core.csproj.AssemblyReference.cache
 E:\DotNet Projects\HouseBroker\HouseBroker.Core\obj\Debug\net8.0\HouseBroker.Core.genruntimeconfig.cache
+E:\DotNet Projects\HouseBroker\HouseBroker.Core\obj\Debug\net8.0\HouseBroker.Core.sourcelink.json

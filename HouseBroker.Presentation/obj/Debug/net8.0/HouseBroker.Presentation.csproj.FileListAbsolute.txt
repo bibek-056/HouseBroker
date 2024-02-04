@@ -17,3 +17,4 @@ E:\DotNet Projects\HouseBroker\HouseBroker.Presentation\obj\Debug\net8.0\HouseBr
 E:\DotNet Projects\HouseBroker\HouseBroker.Presentation\obj\Debug\net8.0\refint\HouseBroker.Presentation.dll
 E:\DotNet Projects\HouseBroker\HouseBroker.Presentation\obj\Debug\net8.0\HouseBroker.Presentation.pdb
 E:\DotNet Projects\HouseBroker\HouseBroker.Presentation\obj\Debug\net8.0\ref\HouseBroker.Presentation.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Presentation\obj\Debug\net8.0\HouseBroker.Presentation.sourcelink.json

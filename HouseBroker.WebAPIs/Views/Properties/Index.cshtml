@@ -1,95 +1,68 @@
 ﻿@model IEnumerable<HouseBroker.Core.DTOs.PropertyDTOs.PropertyReadDTO>
-
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="row flex-row justify-content-between">
+    <div class="col text-white">
+        <h1>Listed Properties</h1>
+    </div>
+    <div class="col flex-row justify-content-end">
+        <form class="form-inline" asp-action="Index" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" name="searchString" placeholder="Search by Property Name or Type">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.District)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Municipality)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WardNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AskingPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateModified)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropertyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.District)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Municipality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WardNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropertyDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PropertyType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AskingPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateModified)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PropertyId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        </form>
+    </div>
+    <div class="col flex-row justify-content-end">
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3 p-2" style="width: 100%; background-color:white">
+            <div class="row no-gutters align-items-start">
+                <div class="col-md-4">
+                    <img class="card-img-top" src="@item.PhotoURL" alt="Property Photo" style="height: 300px">
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <div class="card-text-wrapper pb-2" style="border-bottom: 1px solid #000;">
+                            <p class="card-title text-black" style="font-size: 24px; font-weight: 800">@item.PropertyName</p>
+                            <p class="card-text text-black" style="font-size: 18px; font-weight: 500">@item.PropertyType</p>
+                        </div>
+                        <p class="card-text text-black">@item.PropertyDescription</p>
+                    </div>
+                    <div class="card-body row flex justify-content-start gap-3">
+                        <a asp-action="Edit" asp-route-id="@item.PropertyId" class="btn btn-primary" style="width: 25%">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.PropertyId" class="btn btn-info" style="width: 25%">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.PropertyId" class="btn btn-danger" style="width: 25%">Delete</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" style="color:green; font-size: 22px; line-height: 2; font-weight: 600">NRS. @item.AskingPrice</li>
+                        <li class="list-group-item text-black">@item.State , @item.District , @item.Municipality - @item.WardNo </li>
+                        <li class="list-group-item text-black">Broker Contact No: 1234567890 </li>
+                        <li class="list-group-item text-black flex-row">
+                            Listed At: @item.DateCreated.ToShortDateString()
+                            @if (item.DateModified != null)
+                            {
+                                <p>Last Modified: @item.DateModified.Value.ToShortDateString()</p>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

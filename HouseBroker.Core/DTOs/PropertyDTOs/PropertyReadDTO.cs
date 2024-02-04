@@ -25,6 +25,7 @@ namespace HouseBroker.Core.DTOs.PropertyDTOs
         public required int WardNo { get; set; }
         [MaxLength(30)]
         public string? Location { get; set; }
+        public string? PhotoURL { get; set; }
         [MaxLength(300)]
         public string? PropertyDescription { get; set; }
         [MaxLength(30)]

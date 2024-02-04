@@ -23,6 +23,7 @@ namespace HouseBroker.Core.DTOs.PropertyDTOs
         [MaxLength(30)]
         public string? Location { get; set; }
         [MaxLength(300)]
+        public string? PhotoURL {  get; set; }
         public string? PropertyDescription { get; set; }
         [MaxLength(30)]
         public required string PropertyType { get; set; }

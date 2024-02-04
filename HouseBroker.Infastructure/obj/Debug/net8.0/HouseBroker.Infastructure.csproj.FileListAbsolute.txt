@@ -15,3 +15,4 @@ E:\DotNet Projects\HouseBroker\HouseBroker.Infastructure\obj\Debug\net8.0\refint
 E:\DotNet Projects\HouseBroker\HouseBroker.Infastructure\obj\Debug\net8.0\HouseBroker.Infastructure.pdb
 E:\DotNet Projects\HouseBroker\HouseBroker.Infastructure\obj\Debug\net8.0\HouseBroker.Infastructure.genruntimeconfig.cache
 E:\DotNet Projects\HouseBroker\HouseBroker.Infastructure\obj\Debug\net8.0\ref\HouseBroker.Infastructure.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Infastructure\obj\Debug\net8.0\HouseBroker.Infastructure.sourcelink.json

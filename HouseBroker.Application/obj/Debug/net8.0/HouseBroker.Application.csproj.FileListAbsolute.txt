@@ -13,3 +13,4 @@ E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBro
 E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\refint\HouseBroker.Application.dll
 E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.pdb
 E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\ref\HouseBroker.Application.dll
+E:\DotNet Projects\HouseBroker\HouseBroker.Application\obj\Debug\net8.0\HouseBroker.Application.sourcelink.json

@@ -4,81 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="text-white">@Model.PropertyName</h1>
 
 <div>
-    <h4>Property</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PropertyName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PropertyName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.State)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.District)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.District)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Municipality)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Municipality)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WardNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WardNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PropertyDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PropertyDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PropertyType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PropertyType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AskingPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AskingPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateCreated)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateModified)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateModified)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.PropertyId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="card mb-3 p-2" style="width: 100%; background-color:white">
+
+        <div class="row no-gutters align-items-start">
+            <div class="col-md-4">
+                <img class="card-img-top" src="@Model.PhotoURL" alt="Property Photo" style="height: 300px">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <div class="card-text-wrapper pb-2" style="border-bottom: 1px solid #000;">
+                        <p class="card-title text-black" style="font-size: 24px; font-weight: 800">@Model.PropertyType</p>
+                    </div>
+                    <p class="card-text text-black">@Model.PropertyDescription</p>
+                </div>
+                <div class="card-body row flex justify-content-start gap-3">
+                    <a asp-action="Edit" asp-route-id="@Model.PropertyId" class="btn btn-primary" style="width: 50%">Edit</a>
+                    <a asp-action="Index" class="btn btn-secondary" style="width: 50%">Back to List</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="color:green; font-size: 22px; line-height: 2; font-weight: 600">NRS. @Model.AskingPrice</li>
+                    <li class="list-group-item text-black">@Model.State , @Model.District , @Model.Municipality - @Model.WardNo </li>
+                    <li class="list-group-item text-black">Broker Contact No: 1234567890 </li>
+                    <li class="list-group-item text-black flex-row">
+                        Listed At: @Model.DateCreated.ToShortDateString()
+                        @if (Model.DateModified != null)
+                        {
+                            <p>Last Modified: @Model.DateModified.Value.ToShortDateString()</p>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
